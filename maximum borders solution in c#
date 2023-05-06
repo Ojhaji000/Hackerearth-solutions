@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            // recording the number of testcases
+            string input1 = Console.ReadLine();
+            int testCaseNum = int.Parse(input1);
+            
+            //recording every testcase with below for loop
+            for (int i = 0; i < testCaseNum; i++)
+            {
+                string[] input2 = Console.ReadLine().Split(' ');
+                // dimensions of the testcase, i.e., number of rows and number of columns
+                int rows = Convert.ToInt32(input2[0]);
+                int cols = Convert.ToInt32(input2[1]);
+
+                // creating a storage array for the white and black cells
+                string[] input3Array = new string[rows];
+
+                // storing every row of the matrix as an element of the storage array
+                for(int j = 0; j < rows; j++)
+                {
+                    input3Array[j] = Console.ReadLine();
+                }
+
+
+                // finding the maximum border length of the black cells
+                int count=0;
+                int[] countArray = new int[rows];
+                for(int k = 0; k < rows; k++)
+                {
+                    for(int l = 0; l < input3Array[k].Length; l++)
+                    {
+                        if (input3Array[k][l] == '#')
+                        {
+                            count++;
+                        }
+                    }
+                    countArray[k] = count;
+                    count = 0;
+                    
+                    
+                }
+
+                Console.WriteLine(countArray.Max());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //foreach(string s in input3) { Console.WriteLine(s); }
+
+
+            }
+        }
+    }
+}
