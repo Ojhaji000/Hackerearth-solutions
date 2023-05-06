@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // taking the input word
+            string inputWord = Console.ReadLine();
+            if (inputWord.Length <= 20)
+            {
+                // creating count variables for 'z' and 'o'
+                int zCount =0, oCount = 0;
+                for (int i = 0; i < inputWord.Length; i++)
+                {
+                    if (inputWord[i] == 'z')
+                    {
+                        zCount ++;
+                    }else if (inputWord[i] == 'o')
+                    {
+                        oCount ++;
+                    }
+
+                }
+
+                if (2 * zCount == oCount)
+                {
+                    Console.WriteLine("Yes");
+                }else { 
+                    Console.WriteLine("No");
+                }
+            }
+                
+
+            
+            
+        }
+    }
+}
