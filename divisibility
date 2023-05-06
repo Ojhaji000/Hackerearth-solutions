@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // code here
+
+            string input1 = Console.ReadLine();
+            int arraySize = int.Parse(input1);
+
+            string[] inputArray = Console.ReadLine().Split(' ');
+            
+            
+            // for any number to be divisible by 10, its last digit should be zero
+            // 
+            // checking last character of last element of array is equal to zero or not
+            
+            if (inputArray[arraySize-1].Last() == '0') {
+                Console.WriteLine("Yes");
+
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+            
+                
+
+            
+            
+        }
+    }
+}
