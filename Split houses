@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // code here
+            // storing thee grind number in gridNum 
+            string input1 = Console.ReadLine();
+            int gridNum = int.Parse(input1);
+
+            // storing the grid structure, i.e., how are the houses and blank plots are arranged
+            
+            string grid = Console.ReadLine();
+
+
+
+            
+            // we need to secure everyhouse with fencing, i.e., empty plot around every plot, no two consecutive houses
+            
+            
+            // will make new grid by add fences in the blank plot "B"
+            string newGrid = String.Empty;
+
+            // dontLetItRepeat is a variable to stop the consecutive houses
+            int dontLetItRepeat = 0;
+
+            for (int i = 0; i < gridNum; i++)
+            {
+                
+                if (grid[i] == 'H')
+                {
+                    newGrid = newGrid + grid[i];
+                    dontLetItRepeat++;
+                    
+                    if (dontLetItRepeat > 1)
+                    {
+                        //
+                        Console.WriteLine("NO");
+                        return;
+
+                    }
+                }
+                else
+                {
+                    newGrid = newGrid + 'B';
+                    dontLetItRepeat = 0;
+                }
+            }
+            Console.WriteLine("YES");
+            Console.WriteLine(newGrid);
+            
+
+
+            
+            
+        }
+    }
+}
