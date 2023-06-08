@@ -1,0 +1,73 @@
+using System;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    internal class HackerEarth
+    {
+        static void Main(string[] args)
+        {
+
+            long numberOfStations = int.Parse(Console.ReadLine());
+
+            long startingStation = int.Parse(Console.ReadLine());
+            long endStation = int.Parse(Console.ReadLine());
+            string[] faresInString = Console.ReadLine().Split(' ');
+            long[,] stationFareStructure = new long[numberOfStations,2];
+
+            if (startingStation>endStation)
+            {
+                long z = 0;
+                z = endStation;
+                endStation = startingStation;
+                startingStation = z;
+            }
+
+
+            // {stationBeging--->fare--->stattionFinish} = {startStation, fare}
+            for(int i = 0;  i < numberOfStations; i++)
+            {
+                stationFareStructure[i, 0] = i+1;
+            }
+
+            for(int j = 0;j < numberOfStations; j++)
+            {
+                stationFareStructure[j, 1] = int.Parse(faresInString[j]);
+            }
+
+            long startArrIndexNum = 0;
+            for (int l = 0;l<numberOfStations;l++)
+            {
+                if (stationFareStructure[l,0] == startingStation)
+                {
+                    startArrIndexNum = l;
+                }
+            }
+
+            long endArrIndexNum = 0;
+            for(int m = 0;m < numberOfStations; m++)
+            {
+                if (stationFareStructure[m,0] == endStation)
+                {
+                    endArrIndexNum = m;
+                }
+            }
+            long pathOneFare = 0;
+            long palyNum = startArrIndexNum;
+            while (palyNum < endArrIndexNum)
+            {
+                pathOneFare = pathOneFare + stationFareStructure[palyNum, 1];
+                palyNum++;
+            }
+            long totalFare = 0;
+            for (int i = 0;i < numberOfStations; i++)
+            {
+                totalFare = totalFare + stationFareStructure[i, 1];
+            }
+            long pathTwoFare = totalFare - pathOneFare;
+            long[] fareArray = new long[] { pathOneFare, pathTwoFare };
+            Console.WriteLine(fareArray.Min());
+            Console.ReadLine();
+        }
+    }
+}
